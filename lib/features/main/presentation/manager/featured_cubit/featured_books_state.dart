@@ -1,4 +1,3 @@
-import 'package:equatable/equatable.dart';
 
 import 'package:bookly_app/features/main/data/models/book_model.dart';
 
@@ -34,4 +33,15 @@ class FeaturedBooksFailure extends FeaturedBooksState {
   final String errMessage;
 
   FeaturedBooksFailure(this.errMessage);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+  
+    return other is FeaturedBooksFailure &&
+      other.errMessage == errMessage;
+  }
+
+  @override
+  int get hashCode => errMessage.hashCode;
 }

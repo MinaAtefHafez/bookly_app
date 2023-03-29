@@ -31,4 +31,15 @@ class NewestFailure extends NewestState {
   final String errMessage;
 
   NewestFailure(this.errMessage);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+  
+    return other is NewestFailure &&
+      other.errMessage == errMessage;
+  }
+
+  @override
+  int get hashCode => errMessage.hashCode;
 }
